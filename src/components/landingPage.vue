@@ -71,10 +71,12 @@
     </div>
     <div
         v-show="dataSaved"
+        style="padding-bottom: 2rem"
     >
-      <h1>
-        ״תודה על פנייתך, בקרוב יהיה לך אירוע מושלם״ 😉
-      </h1>
+      <h1>תודה על פנייתך</h1>
+      <h1>בקרוב נחזור אליך</h1>
+      <h1>ליצירת אירוע מושלם</h1>
+
     </div>
 
   </div>

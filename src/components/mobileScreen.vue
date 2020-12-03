@@ -7,7 +7,7 @@
         <prospect-image></prospect-image>
       </div>
       <div
-          style="height: 500px;"
+          style="height: 100%;"
       >
         <video-card></video-card>
 
