@@ -7,8 +7,7 @@ export default {
     writeData,
     deleteData,
     updateData,
-    getData,
-    pathFactory
+    getData
 }
 
 
@@ -21,11 +20,16 @@ function getData(path) {
 }
 
 function updateData(data, path){
-    db.ref(path).set(data);
+    db.ref(path).set(data)
+        .then(res => {
+            return res;
+        })
 }
 
-function writeData(data, path) {
-    db.ref(path).push(data);
+async function writeData(data, path) {
+    let res = await db.ref(path).push(data)
+    await console.log(res)
+    return res
 }
 
 function deleteData(path) {
@@ -33,12 +37,4 @@ function deleteData(path) {
 }
 
 
-function pathFactory(i, self, id) {
-    const user = firebaseInstance.firebase.auth().currentUser;
-    const fullPath = ["users", user.uid, "courses", self.$route.params.cid,"chapters",self.$route.params.chaid,"questions",self.$route.params.qid]
-    const pathArray = fullPath.splice(0,i+2)
-    if (id){
-        pathArray.push(id)
-    }
-    return pathArray.join('/')
-}
+

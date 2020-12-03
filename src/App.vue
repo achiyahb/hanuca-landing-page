@@ -1,32 +1,65 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app
+  color="#d7d9d8"
+  >
+
+
+    <v-main
+    style="margin-top: 0"
+    >
+<router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
+export default {
+  name: 'App',
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  components: {
 
-    &.router-link-exact-active {
-      color: #42b983;
+  },
+
+  data: () => ({
+    //
+  }),
+  methods:{
+    colorChanger(){
+      let labels = document.querySelectorAll('.v-label.theme--light')
+      labels.forEach(label =>{
+        label.style.color = '#ffce43'
+      })
+
     }
+
+  },
+  created() {
+    this.$vuetify.rtl = true
+  },
+  mounted() {
+    this.colorChanger()
   }
-}
+};
+</script>
+
+<style>
+  div{
+    color:#ffce43;
+  }
+  button{
+    color:#ffce43;
+  }
+  .custom-label-color .v-label {
+    color: white;
+    opacity: 1;
+  }
+  .custom-placeholer-color input::placeholder {
+    color: red!important;
+    opacity: 1;
+  }
+  .v-main__wrap{
+    padding-top: 0;
+    margin-top: 0;
+  }
 </style>
